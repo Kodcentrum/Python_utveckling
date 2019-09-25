@@ -1,5 +1,6 @@
 import pygame, sys
 
+from swedish_key_mapper import SwedishKeyMapper as KM
 
 #kvar snyggare bild, obs bör vara rund för att fungera med koden.
 #mållinje, finns, men varvräknare skulle kanske vara kul.
@@ -36,14 +37,15 @@ while 1:
             sys.exit()
         # Tracks which keys are pressed in a given frame
         # Not working, hold down buttons. Fix later...
-        keystate = pygame.key.get_pressed()
-        if keystate[pygame.K_LEFT]:
+        trycka = KM(pygame.key.get_pressed())
+
+        if trycka.på("vänsterpil"):
             x -= 5
-        if keystate[pygame.K_RIGHT]:
+        if trycka.på("högerpil"):
             x += 5
-        if keystate[pygame.K_DOWN]:
+        if trycka.på("nedåtpil"):
             y += 5
-        if keystate[pygame.K_UP]:
+        if trycka.på("uppåtpil"):
              y -= 5
         # Recreates background,grass, tracks without the cars previous position
         screen.fill(green)
