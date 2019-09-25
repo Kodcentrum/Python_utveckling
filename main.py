@@ -15,36 +15,36 @@ red = (255,0,0)
 white = (255,255,255)
 
 # Startposition
-x = 300;
-y = 100;
+x = 300
+y = 100
 
-radius_car = 10;
-tracksize = 150;
-outercircle_radius = 280;
-innercircle_radius = outercircle_radius-tracksize;
+radius_car = 10
+tracksize = 150
+outercircle_radius = 280
+innercircle_radius = outercircle_radius-tracksize
 
 #draws background with the car at the starting position. Technically redundant code, but probably useful to show.
 screen = pygame.display.set_mode(size)
 screen.fill(green)
-outercircle = pygame.draw.circle(screen,black,(300,300),outercircle_radius, tracksize);
+outercircle = pygame.draw.circle(screen,black,(300,300),outercircle_radius, tracksize)
 finish_line = pygame.draw.line(screen, white, (285, 170), (285, 20),3)
 while 1:
     for event in pygame.event.get():
         # Closes window and program
         if event.type == pygame.QUIT:
-            pygame.quit();
-            sys.exit();
+            pygame.quit()
+            sys.exit()
         # Tracks which keys are pressed in a given frame
         # Not working, hold down buttons. Fix later...
         keystate = pygame.key.get_pressed()
         if keystate[pygame.K_LEFT]:
-            x -= 5;
+            x -= 5
         if keystate[pygame.K_RIGHT]:
-            x += 5;
+            x += 5
         if keystate[pygame.K_DOWN]:
-            y += 5;
+            y += 5
         if keystate[pygame.K_UP]:
-             y -= 5;
+             y -= 5
         # Recreates background,grass, tracks without the cars previous position
         screen.fill(green)
         outercircle = pygame.draw.circle(screen, black, (300, 300), outercircle_radius, tracksize)
