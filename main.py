@@ -6,12 +6,6 @@ import pygame, sys
 #fixa knapparna
 
 
-#Absolutbeloppsfunktion
-def abs(u,v):
-    if u >= v:
-        return (u-v)
-    elif v > u:
-        return (v-u)
 pygame.init()
 
 size = width, height = 600,600
@@ -59,6 +53,6 @@ while 1:
         car = pygame.draw.circle(screen, red, (x,y), radius_car)
         pygame.display.update()
         # Checks if the car goes off the track, if yez then the race starts over.
-        if (innercircle_radius > (abs(x,300)**2+abs(y,300)**2)**0.5) or (outercircle_radius < (abs(x,300)**2+abs(y,300)**2)**0.5):
+        if (innercircle_radius > (abs(x-300)**2+abs(y-300)**2)**0.5) or (outercircle_radius < (abs(x-300)**2+abs(y-300)**2)**0.5):
             x=300
             y=100
